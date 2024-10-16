@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+*{
+  font-family: "Candal";
+}
+.Second-Fonts
+{
+  font-family: 'Gowun Batang';
+}
+
+.bg-OffWhite
+{
+  background-color: #f1f1f1;
+}
+.bg-gray
+{
+  background-color: rgb(224, 224, 224) !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,10 @@
+.table td, .table th {
+    vertical-align: middle; /* Center-align the content vertically */
+  }
+  
+  @media (max-width: 576px) {
+    .table-responsive {
+      margin-top: 20px; /* Add some margin at the top on small screens */
+    }
+  }
+  

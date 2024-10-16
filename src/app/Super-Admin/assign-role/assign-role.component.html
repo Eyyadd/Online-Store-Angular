@@ -1,0 +1,40 @@
+<section class="py-3 bg-dark text-white">
+  <div class="container Body rounded-5 p-5 d-flex justify-content-center align-items-center">
+
+  <div class="w-100">
+    <div class="text-center mx-5 border-bottom border-3 mb-5">
+      <h1>Wellcome Admin :)</h1>
+      <p>Please Fill This Form To Assign Role</p>
+    </div>
+
+    <div class="row w-100">
+      <form [formGroup]="AssignRoleForm" (ngSubmit)="AssignRole()">
+        <div class="mb-3">
+          <label for="userEmail" class="form-label text-white text-start">user Email </label>
+          <input formControlName="userEmail" name="userEmail" type="email" class="form-control text-white bg-dark border-0" id="userEmail" aria-describedby="emailHelp">
+          <div *ngIf="AssignRoleForm.controls['userEmail'].invalid && AssignRoleForm.controls['userEmail'].touched">
+            <p class="text-danger" *ngIf="AssignRoleForm.controls['userEmail'].errors?.['required']">Email Is Required</p>
+            <p class=" text-danger" *ngIf="AssignRoleForm.controls['userEmail'].errors?.['email']">Invalid Emails</p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="roleName" class="form-label text-white ">role Name </label>
+          <input formControlName="roleName" name="roleName" type="text" class="form-control  text-white bg-dark border-0" id="roleName" aria-describedby="emailHelp">
+          <div *ngIf="AssignRoleForm.controls['roleName'].invalid && AssignRoleForm.controls['userEmail'].touched">
+            <p class="text-danger" *ngIf="AssignRoleForm.controls['roleName'].errors?.['required']">Role Is Required</p>
+            <p class=" text-danger" *ngIf="AssignRoleForm.controls['roleName'].errors?.['minlength']">Invalid Role</p>
+        </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark me-3" [disabled]="AssignRoleForm.invalid">Submit</button>
+        <a class="btn btn-danger" routerLink="/Admin/Wellcome">Cancel</a>
+      </form>
+
+     </div>
+
+
+  </div>
+
+  </div>
+</section>
+

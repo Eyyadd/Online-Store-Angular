@@ -1,0 +1,10 @@
+<div class="card shadow-lg">
+  <img [src]="Proudct.imageCover" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{Proudct.name}}</h5>
+    <span class="card-text pe-2 border-end border-1 Second-Fonts fw-bolder">{{Proudct.seller}}</span>
+    <span class="card-text ps-2 Second-Fonts fw-bolder">{{Proudct.categoryName}}</span>
+    <p class="Second-Fonts fw-bolder">{{Proudct.price | currency:'EGP '}}</p>
+    <a class="btn btn-dark w-100" routerLink="/ProudctDetails/{{Proudct.id}}">See Product</a>
+  </div>
+</div>

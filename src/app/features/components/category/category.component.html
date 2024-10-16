@@ -1,0 +1,101 @@
+<section class="py-5 bg-OffWhite">
+  <div class="container">
+    <div class=" py-4">
+      <h3 class="border-start border-5  border-danger py-1 text-danger mb-5"> <span
+          class="material-symbols-outlined text-danger">
+          Man
+        </span>Man </h3>
+
+      <div class="row justify-content-center align-items-center gy-3 mb-5">
+        @for (item of MenProducts; track $index) {
+        <div class="col-md-3">
+          <div class="card shadow-lg">
+            <img [src]="item.imageCover" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <span class="card-text pe-2 border-end border-1 Second-Fonts fw-bolder">{{item.seller}}</span>
+              <span class="card-text ps-2 Second-Fonts fw-bolder">{{item.categoryName}}</span>
+              <p class="Second-Fonts fw-bolder">{{item.price}} | currency:'EGP'</p>
+              <a class="btn btn-dark w-100" routerLink="/ProudctDetails/item.id">See Product</a>
+            </div>
+          </div>
+        </div>
+        }
+
+        <div class="col-md-3 bg-white rounded-4 custom-card d-flex justify-content-center align-items-center">
+          <button class="btn d-flex align-items-center w-100" (click)="navigateToListing('Man')"> See More <span class="material-symbols-outlined icon">
+              keyboard_double_arrow_right
+            </span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class=" py-4">
+      <h3 class="border-start border-5  border-danger py-1 text-danger mb-5"> <span
+          class="material-symbols-outlined text-danger">
+          woman_2
+        </span>Woman </h3>
+
+      <div class="row justify-content-center align-items-center gy-3">
+        @for (item of WomenProducts; track $index) {
+        <div class="col-md-3">
+          <div class="card shadow-lg">
+            <img [src]="item.imageCover" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <span class="card-text pe-2 border-end border-1 Second-Fonts fw-bolder">{{item.seller}}</span>
+              <span class="card-text ps-2 Second-Fonts fw-bolder">{{item.categoryName}}</span>
+              <p class="Second-Fonts fw-bolder">{{item.price}} | currency:'EGP'</p>
+              <a class="btn btn-dark w-100" routerLink="/ProudctDetails/item.id">See Product</a>
+            </div>
+          </div>
+
+        </div>
+        }
+
+        <div class="col-md-3 bg-white rounded-4 custom-card d-flex justify-content-center align-items-center">
+          <button class="btn d-flex align-items-center w-100" (click)="navigateToListing('Women')"> See More <span class="material-symbols-outlined icon">
+              keyboard_double_arrow_right
+            </span></button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class=" py-4">
+      <h3 class="border-start border-5  border-danger py-1 text-danger mb-5"> <span class="material-symbols-outlined">
+          child_friendly
+        </span>Childeren </h3>
+
+      <div class="row justify-content-center align-items-center gy-3">
+        @for (item of ChildrenProducts; track $index) {
+        <div class="col-md-3">
+          <div class="card shadow-lg">
+            <img [src]="item.imageCover" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <span class="card-text pe-2 border-end border-1 Second-Fonts fw-bolder">{{item.seller}}</span>
+              <span class="card-text ps-2 Second-Fonts fw-bolder">{{item.categoryName}}</span>
+              <p class="Second-Fonts fw-bolder">{{item.price}} | currency:'EGP'</p>
+              <a class="btn btn-dark w-100" routerLink="/ProudctDetails/item.id">See Product</a>
+            </div>
+          </div>
+
+        </div>
+        }
+
+
+        <div class="col-md-3 bg-white rounded-4 custom-card d-flex justify-content-center align-items-center">
+          <button class="btn d-flex align-items-center w-100" (click)="navigateToListing('Children')"> See More <span class="material-symbols-outlined icon">
+              keyboard_double_arrow_right
+            </span></button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</section>

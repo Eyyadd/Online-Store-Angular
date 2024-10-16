@@ -1,0 +1,54 @@
+<section class="py-5">
+  <div class="container">
+    <!-- Search Input -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Search by product name" [(ngModel)]="searchTerm"
+          (ngModelChange)="onSearchTermChange()" />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <!-- Category Select -->
+      <div class="col-md-3">
+        <select class="form-select" [(ngModel)]="selectedCategory" (change)="onCategoryChange(selectedCategory)">
+          <option value="All">All Categories</option>
+          <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+        </select>
+      </div>
+
+      <!-- Sort Select -->
+      <div class="col-md-3">
+        <select class="form-select" [(ngModel)]="sortOrder" (change)="onSortOrderChange(sortOrder)">
+          <option value="asc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+        </select>
+      </div>
+
+      <!-- Price Range Slider -->
+      <div class="col-md-6">
+        <label class="form-label">Price Range: {{currentMinPrice}} - {{currentMaxPrice}}</label>
+        <mat-slider [min]="minPrice" [max]="maxPrice" class="w-100">
+          <input [(ngModel)]="currentMinPrice" (ngModelChange)="onPriceRangeChange()" matSliderStartThumb>
+          <input [(ngModel)]="currentMaxPrice" (ngModelChange)="onPriceRangeChange()" matSliderEndThumb>
+        </mat-slider>
+      </div>
+    </div>
+
+    <!-- Message when no products are found -->
+    <div *ngIf="noProductsFound" class="alert alert-warning">
+      No products found with the current filters.
+    </div>
+
+    <!-- Product Listing -->
+    <div *ngIf="!noProductsFound" class="row g-5">
+      <div class="col-md-6 col-lg-3" *ngFor="let product of pagedProducts">
+        <app-product-card [Proudct]="product"></app-product-card>
+      </div>
+    </div>
+
+    <!-- Paginator -->
+    <mat-paginator [length]="totalProducts" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25]"
+      (page)="onPageChange($event)"></mat-paginator>
+  </div>
+</section>

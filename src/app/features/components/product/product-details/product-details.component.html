@@ -1,0 +1,130 @@
+<section class="py-5">
+   <div class="container">
+     <div class="row">
+      <div class="col-md-2">
+         @for (item of ProductDetails.variants; track $index) {
+          <div>
+            <img [src]="item.image" class="w-100">
+          </div>
+         }
+      </div>
+      <div class="col-md-4">
+          <img [src]="ProductDetails.coverImage" class="w-100">
+      </div>
+      <div class="col-md-5 offset-1" >
+        <h3 class="fw-bolder">{{ProductDetails.name}}</h3>
+        <p class="fw-bolder">
+          <span class="material-symbols-outlined text-warning">
+            star
+            </span>
+        </p>
+        <p class="fw-bolder">{{ProductDetails.price | currency:"EGP"}}</p>
+        <div class="mb-3">
+          <span class="fw-bolder Second-Fonts me-5">{{ProductDetails.seller}}</span>
+        <span class="fw-bolder Second-Fonts">{{ProductDetails.categoryName}}</span>
+        </div>
+
+
+        <div class="border-top border-2 pt-3">
+          <p class="Second-Fonts p-0 m-0 mb-3">Select Color</p>
+          <div class="d-flex mb-3 border-bottom border-2 pb-3">
+            @for (item of ProductColors; track $index) {
+              <button class="color  me-3 btn" [value]="item" (click)="ChangeChoosenValue($event)" [ngClass]="{'rounded-circle':ChoosenColor == item}"  [style.background-color]="item"></button>
+            }
+          </div>
+          <p class="Second-Fonts p-0 m-0">Select Size</p>
+          @for (item of ProudctVariants; track $index) {
+            @if(ChoosenColor == item.color)
+            {
+              <div class="d-flex border-bottom border-2 pb-3">
+
+              @for (size of item.Sizes; track $index) {
+
+                <input type="text" [value]="size.id" readonly hidden>
+                <!-- <label for="size">{{size.size}}</label>
+                <input type="radio" name="size" class=" me-3 bg-primary btn btn-primary w-25" (click)="GetValue($event)" [value]="size.id"> -->
+                <button  class=" me-3  btn btn-light px-4" [ngClass]="{'bg-dark' : SelectedButtun === size.id , 'text-white':SelectedButtun === size.id} " (click)="GetValue($event)" [id]="size.id">{{size.size}}</button>
+            }
+
+              </div>
+            }
+          }
+
+          <div class="my-3 d-flex">
+
+           <div class="d-flex align-items-center bg-gray rounded-2">
+            <button class="btn border-0" (click)="ReduceQuantity()" [disabled]="quantity<=0">-</button>
+            <p class="p-0 m-0">{{quantity}}</p>
+            <button class="btn" (click)="IncreaseQuantity()">+</button>
+           </div>
+
+            <button class="btn btn-dark w-75 text-center ms-3" (click)="AddToCart()" [disabled]="SelectedButtun == 0 || quantity <= 0">Add To Cart </button>
+
+
+
+         </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="row py-5 gy-4">
+
+        <h3 class="my-4">All Reviews :)</h3>
+        <div class="col-md-6">
+         <div class="bg-OffWhite p-5 rounded-5">
+          <p>
+            <span class="material-symbols-outlined text-warning">
+            star
+            </span>
+          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, id voluptatum! Earum corrupti, explicabo inventore mollitia eius doloremque ab reprehenderit?</p>
+
+         </div>
+        </div>
+        <div class="col-md-6">
+          <div class="bg-OffWhite p-5 rounded-5">
+           <p>
+             <span class="material-symbols-outlined text-warning">
+             star
+             </span>
+           </p>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, id voluptatum! Earum corrupti, explicabo inventore mollitia eius doloremque ab reprehenderit?</p>
+
+          </div>
+         </div>
+
+         <div class="col-md-6">
+          <div class="bg-OffWhite p-5 rounded-5">
+           <p>
+             <span class="material-symbols-outlined text-warning">
+             star
+             </span>
+           </p>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, id voluptatum! Earum corrupti, explicabo inventore mollitia eius doloremque ab reprehenderit?</p>
+
+          </div>
+         </div>
+
+         <div class="col-md-6">
+          <div class="bg-OffWhite p-5 rounded-5">
+           <p>
+             <span class="material-symbols-outlined text-warning">
+             star
+             </span>
+           </p>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, id voluptatum! Earum corrupti, explicabo inventore mollitia eius doloremque ab reprehenderit?</p>
+
+          </div>
+         </div>
+
+
+      </div>
+
+
+
+
+     </div>
+   </div>
+</section>

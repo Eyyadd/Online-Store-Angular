@@ -1,0 +1,93 @@
+<section class="bg-OffWhite">
+  <div class="container py-5">
+    <div class="row align-items-center flex-md-row-reverse">
+      <div class="col-md-5 offset-1">
+        <img src="/charlesdeluvio-krsBQymp76k-unsplash.jpg" class="w-100 customHeigt rounded-5">
+      </div>
+      <div class="col-md-6">
+        <H1 class="display-3">Find Clothes That Matches Your Style</H1>
+        <p class="text-muted py-2 fw-bolder Second-Fonts">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+          fuga aliquid accusantium numquam laboriosam repudiandae ut quasi eum iste doloribus?</p>
+        <a class="btn btn-dark rounded-pill Second-Fonts" routerLink="/Proudcts">Shop Now</a>
+        <div class="row justify-content-start py-5">
+          <div class="col-4 text-center border-end border-2">
+            <h3 class="fw-bold Second-Fonts">200+</h3>
+            <p class="text-muted Second-Fonts">Lorem ipsum .</p>
+          </div>
+          <div class="col-4 text-center border-end border-2">
+            <h3 class="fw-bold Second-Fonts">2,000+</h3>
+            <p class="text-muted Second-Fonts">Lorem ipsum .</p>
+          </div>
+          <div class="col-4 text-center ">
+            <h3 class="fw-bold Second-Fonts">30,000+</h3>
+            <p class="text-muted Second-Fonts">Lorem ipsum .</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="seller-stepper-container d-flex justify-content-center align-items-center py-4">
+    <!-- Previous button -->
+    <button mat-icon-button color="primary" (click)="previousSellers()" [disabled]="currentSellerIndex === 0"
+      class="stepper-btn">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <!-- Sellers list -->
+    <div class="sellers-display d-flex justify-content-around mx-4">
+      <span *ngFor="let item of currentSellers; let i = index" class="px-4 seller-name display-6">
+        {{ item }}
+      </span>
+    </div>
+
+    <!-- Next button -->
+    <button mat-icon-button color="primary" (click)="nextSellers()"
+      [disabled]="(currentSellerIndex + 1) * sellersPerPage >= Seller.length" class="stepper-btn">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+
+</section>
+
+
+<section class="py-5 bg-OffWhite best my-5 rounded-5">
+
+  <div class="container ">
+    <h3 class="d-flex fs-2 justify-content-start align-items-center text-black my-5">Best Seller
+      <span class="material-symbols-outlined fs-3 ">
+        star
+      </span>
+    </h3>
+
+
+    <div class="row gy-3 justify-content-center">
+      @for (item of BestSellerProducts; track $index) {
+      <div class="col-md-3">
+        <app-product-card [Proudct]="item"></app-product-card>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5 bg-OffWhite best my-5 rounded-5">
+  <div class="container ">
+    <h3 class="d-flex fs-2 justify-content-start align-items-center text-black my-5">New Arrival
+      <span class="material-symbols-outlined">
+        new_window
+      </span>
+    </h3>
+    <div class="row gy-3 justify-content-center">
+      @for(item of NewArrivalProducts; track $index) {
+      <div class="col-md-3">
+        <app-product-card [Proudct]="item"></app-product-card>
+      </div>
+      }
+    </div>
+  </div>
+</section>

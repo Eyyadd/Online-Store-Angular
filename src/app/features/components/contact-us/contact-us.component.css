@@ -1,0 +1,24 @@
+.bg-offdark
+{
+  background-color: rgba(157, 2, 2);
+}
+.parent
+{
+  position: relative;
+}
+.customCard
+{
+  position: absolute;
+  right: 5%;
+  top: 2%;
+  height: 87%;
+
+}
+
+@media screen and (max-width :900) {
+  .customCard
+  {
+    position: sticky;
+    height: 100%;
+  }
+}

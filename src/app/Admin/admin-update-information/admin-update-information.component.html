@@ -1,0 +1,44 @@
+<section>
+ <div class="border-bottom border-3 mx-5">
+  <h1 class="text-center ">Wellcome Owner :)</h1>
+  <p class="mx-5 text-center">Update Your Password</p>
+ </div>
+  <div class="container Body rounded-5 p-5 d-flex justify-content-center align-items-center my-3">
+
+   <div class="row w-100">
+    <form [formGroup]="UpdatePasswordForm" (ngSubmit)="updatePassword()">
+      <div class="mb-3">
+        <label for="userName" class="form-label text-white ">user Name</label>
+        <input formControlName="userName" name="userName" type="text" class="form-control text-white bg-dark border-0" id="userName" aria-describedby="emailHelp">
+        <div *ngIf="UpdatePasswordForm.controls['userName'].invalid && UpdatePasswordForm.controls['userName'].touched">
+          <p class="text-danger" *ngIf="UpdatePasswordForm.controls['userName'].errors?.['required']">Name Is Required</p>
+          <p class=" text-danger" *ngIf="UpdatePasswordForm.controls['userName'].errors?.['minlength']">Name must be more than 3 Charcters</p>
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="currentPassword" class="form-label text-white">current Password</label>
+        <input formControlName="currentPassword" name="currentPassword" type="text" class="form-control text-white bg-dark border-0" id="currentPassword" aria-describedby="emailHelp">
+        <div *ngIf="UpdatePasswordForm.controls['currentPassword'].invalid && UpdatePasswordForm.controls['currentPassword'].touched">
+          <p class="text-danger" *ngIf="UpdatePasswordForm.controls['currentPassword'].errors?.['required']">Name Is Required</p>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="newPassword" class="form-label text-white">new Password</label>
+        <input formControlName="newPassword" name="newPassword" type="text" class="form-control text-white bg-dark border-0" id="newPassword" aria-describedby="emailHelp">
+        <div *ngIf="UpdatePasswordForm.controls['newPassword'].invalid && UpdatePasswordForm.controls['newPassword'].touched">
+          <p class="text-danger" *ngIf="UpdatePasswordForm.controls['newPassword'].errors?.['required']">Name Is Required</p>
+          <p class=" text-danger" *ngIf="UpdatePasswordForm.controls['newPassword'].errors?.['pattern']">Password Must Contain Numbers, Uppercase , Lowercase and Special Characters</p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark me-3" [disabled]="UpdatePasswordForm.invalid">Submit</button>
+      <a class="btn btn-danger" routerLink="/Admin/Wellcome">Cancel</a>
+    </form>
+
+   </div>
+
+
+
+
+  </div>
+
+</section>

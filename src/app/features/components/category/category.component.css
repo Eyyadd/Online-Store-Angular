@@ -1,0 +1,15 @@
+.custom-card
+{
+  height: 360px;
+  transition: all 0.5s;
+}
+button
+{
+  transition: all 0.5s;
+}
+.custom-card:hover
+{
+  button{
+    transform: translateX(30px);
+  }
+}

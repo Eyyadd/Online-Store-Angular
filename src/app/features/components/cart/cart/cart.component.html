@@ -1,0 +1,82 @@
+<section class="py-5 bg-OffWhite">
+  <div class="container">
+    <h2>Cart :)</h2>
+
+    <div class="row py-5 align-items-start">
+      <div class="col-md-6">
+        <div *ngFor="let item  of cartItems"
+          class="row gy-5 justify-content-md-between justify-content-start align-items-center my-5 pb-5 border-black border-bottom border-5">
+          <div class="col-md-2 col-4">
+            <img [src]="item.productImage" class="w-100 h-100" alt="{{ item.productName }}">
+          </div>
+
+          <div class="col-md-3 col-4">
+            <p class="p-0 m-0">{{ item.productName }}</p>
+          </div>
+
+          <div class="col-md-2 col-4">
+            {{ item.price | currency }}
+          </div>
+
+          <div class="col-md-2 col-3">
+            <div class="d-flex justify-content-between bg-white align-items-center rounded-3">
+              <button class="btn text-danger" (click)="increaseQuantity(item)">+</button>
+              <p class="p-0 m-0 text-danger">{{ item.cartProductQuantity }}</p>
+              <button class="btn text-danger" (click)="decreaseQuantity(item)">-</button>
+            </div>
+          </div>
+          <div class="col-md-2 col-3">
+            {{ item.cartProductQuantity * item.price | currency }}
+          </div>
+
+          <div class="col-1">
+            <button class="btn" (click)="removeFromCart(item)">
+              <span class="material-symbols-outlined text-danger">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-start">
+          <button class="btn btn-dark w-50 text-white rounded-3 d-flex align-items-center my-4 me-5"
+            (click)="navigateToHome()">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            Continue Shopping ?
+          </button>
+          <button class="btn btn-dark w-50 text-white rounded-3 d-flex align-items-center my-4"
+            [disabled]="cartItems.length === 0" (click)="startNewCart()">
+            <span class="material-symbols-outlined">remove_shopping_cart</span>
+            Start New Cart?
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4 offset-md-2">
+        <div class="bg-white p-5 rounded-5">
+          <h4 class="border-bottom border-5 pb-3 border-black">Order Summary :)</h4>
+          <div class="py-3 border-bottom border-5 border-black">
+            <div class="d-flex justify-content-between">
+              <p>Price</p>
+              <p>{{ totalPrice | currency }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p>Shipping</p>
+              <p>{{ shippingCost | currency }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p>Tax</p>
+              <p>{{ taxAmount | currency }}</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between my-3">
+            <p>Total Price</p>
+            <p>{{ totalPrice + shippingCost + taxAmount | currency }}</p>
+          </div>
+          <button class="w-100 btn bg-danger text-white rounded-3 d-flex align-items-center" (click)="navigateToPayment()">
+            <span class="material-symbols-outlined text-white">order_approve</span>
+            Place Order
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+
+
+<section class="overflow-auto">
+  <div class="container Body rounded-5 p-5">
+
+    <h3>Wellcome Owner</h3>
+      <h5 class="text-custom">You Can Now Add Product Just Follow The Steps :)</h5>
+    <div class="d-flex justify-content-between">
+
+    </div>
+    <div class="row justify-content-start py-5 align-items-start" *ngIf="!UploadSuccess">
+       <h5>Step 1</h5>
+
+       <p>Upload Product Main Image</p>
+
+       <form [formGroup]="uploadForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="image" class="form-label text-white">upload Image</label>
+          <input (change)="onFileSelect($event)"  type="file" class="form-control bg-dark border-0 text-white" id="image" [(ngModel)]="ImageCover">
+        </div>
+
+        <button type="submit" class="btn btn-dark me-3" [disabled]="!uploaded">Submit</button>
+        <a class="btn btn-danger" routerLink="/Admin/Wellcome">Cancel</a>
+
+        </form>
+
+    </div>
+
+
+    <div class="row justify-content-start py-2 align-items-start" id="Step2" *ngIf="UploadSuccess">
+      <h5>Step 2</h5>
+
+      <p>Insert Product Information</p>
+
+      <form [formGroup]="ProductForm" (ngSubmit)="AddProduct()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Product Name</label>
+          <input type="text" formControlName="name" name="name" class="form-control bg-dark border-0 text-white" id="Name">
+          <div *ngIf="ProductForm.controls['name'].invalid && ProductForm.controls['name'].touched">
+            <p class="text-danger" *ngIf="ProductForm.controls['name'].errors?.['required']">Name Is Required</p>
+            <p class=" text-danger" *ngIf="ProductForm.controls['name'].errors?.['minlength']">Name must be more than 3 Charcters</p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="seller" class="form-label">Seller Name</label>
+          <input type="text" formControlName="seller" name="seller" class="form-control bg-dark border-0 text-white" id="seller">
+          <div *ngIf="ProductForm.controls['seller'].invalid && ProductForm.controls['seller'].touched">
+            <p class="text-danger" *ngIf="ProductForm.controls['seller'].errors?.['required']">Seller Name Is Required</p>
+            <p class=" text-danger" *ngIf="ProductForm.controls['seller'].errors?.['minlength']">Seller Name must be more than 3 Charcters</p>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" formControlName="price" name="name" class="form-control bg-dark border-0 text-white" id="price">
+          <div *ngIf="ProductForm.controls['price'].invalid && ProductForm.controls['price'].touched">
+            <p class="text-danger" *ngIf="ProductForm.controls['price'].errors?.['required']">Price Is Required</p>
+            <p class=" text-danger" *ngIf="ProductForm.controls['price'].errors?.['min']">Price must be more 150 EGP</p>
+        </div>
+        </div>
+        <select class="form-select bg-dark border-0 text-white" formControlName="categoryId" id="categoryId" name="categoryId" [(ngModel)]="category" (change)="getCategoryValue($event)" >
+          <option class="bg-dark border-0 text-white" selected>Open this select menu</option>
+          @for (item of Categories; track $index) {
+            <option class="bg-dark border-0 text-white" [value]="item.id">{{item.name}}</option>
+          }
+
+        </select>
+
+       <button type="submit" class="btn btn-dark my-3" [disabled]="ProductForm.invalid">Submit</button>
+
+       </form>
+
+
+
+
+
+   </div>
+
+  </div>
+</section>
+
+

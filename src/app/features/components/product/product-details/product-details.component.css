@@ -1,0 +1,18 @@
+.color
+{
+  width: 20px;
+  height: 20px;
+  opacity: 70%;
+
+}
+
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+

@@ -1,0 +1,96 @@
+<section>
+  <div class="container Body rounded-5 p-5">
+
+
+    <h3>Add Product Vaiants</h3>
+
+    <div class="d-flex justify-content-between">
+    </div>
+    <div class="row justify-content-start py-5 align-items-start" *ngIf="!UploadSuccess">
+       <h5>Step 3</h5>
+
+       <p>Upload Product Variants Main Image</p>
+
+       <form [formGroup]="uploadForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="image" class="form-label text-white">upload Image</label>
+          <input (change)="onFileSelect($event)"  type="file" class="form-control bg-dark border-0 text-white" id="image">
+        </div>
+
+        <button type="submit" class="btn btn-dark me-3" [disabled]="!uploaded">Submit</button>
+        <a class="btn btn-danger" routerLink="/Admin/Wellcome">Cancel</a>
+
+        </form>
+
+    </div>
+
+
+    <div class="row justify-content-start py-5 align-items-start" id="Step2" *ngIf="UploadSuccess">
+      <h5>Step 4</h5>
+
+      <p>Insert Product Information</p>
+
+      <form [formGroup]="ProductForm" (ngSubmit)="AddProduct()">
+        <!-- <div class="mb-3">
+          <label for="color" class="form-label">Product color</label>
+          <input type="text" formControlName="color" name="color" class="form-control bg-dark border-0 text-white" id="color">
+          <div *ngIf="ProductForm.controls['color'].invalid && ProductForm.controls['color'].touched">
+            <p class="text-danger" *ngIf="ProductForm.controls['color'].errors?.['required']">color Is Required</p>
+            <p class=" text-danger" *ngIf="ProductForm.controls['color'].errors?.['minlength']">color must be more than 3 Charcters</p>
+        </div>
+        </div> -->
+
+      <div class="mb-3">
+        <label for="color" class="form-label">Product color</label>
+        <select class="form-select bg-dark border-0 text-white" aria-label="Default select example" formControlName="color">
+          <option selected>Choose Color</option>
+          @for (color of colors; track $index) {
+            <option [value]="color">{{color.toString()}}</option>
+          }
+        </select>
+      </div>
+
+
+
+      <div class="mb-3">
+        <label for="color" class="form-label">Product Size</label>
+        <select class="form-select bg-dark border-0 text-white" aria-label="Default select example" formControlName="size">
+          <option selected>Choose Size</option>
+          @for (size of sizes; track $index) {
+            <option *ngIf="!size.toString().includes('Size')" [value]="size">{{size.toString()}}</option>
+          }
+        </select>
+      </div>
+
+
+        <div class="mb-3">
+          <label for="quantity" class="form-label">quantity</label>
+          <input type="number" formControlName="quantity" name="quantity" class="form-control bg-dark border-0 text-white" id="quantity">
+          <div *ngIf="ProductForm.controls['quantity'].invalid && ProductForm.controls['quantity'].touched">
+            <p class="text-danger" *ngIf="ProductForm.controls['quantity'].errors?.['required']">quantity Is Required</p>
+            <p class=" text-danger" *ngIf="ProductForm.controls['quantity'].errors?.['min']">quantity must be more 1</p>
+        </div>
+        </div>
+
+       <button type="submit" class="btn btn-dark my-3" [disabled]="ProductForm.invalid">Submit</button>
+
+       </form>
+
+
+
+
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</section>

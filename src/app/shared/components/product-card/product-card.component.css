@@ -1,0 +1,22 @@
+.card
+{
+  transition: all 0.7s;
+  overflow: hidden;
+}
+.card img{
+  transition: all 0.5s;
+}
+.card:hover
+{
+  img{
+    transform: scale(1.2);
+  }
+   box-shadow: 20px 20px rgba(0, 0, 0, 0.5) !important;
+   cursor: pointer;
+
+}
+
+.card img
+{
+  height: 200px;
+}

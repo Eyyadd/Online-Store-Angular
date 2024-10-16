@@ -1,0 +1,43 @@
+.Second-Fonts
+{
+  font-family: 'Gowun Batang';
+}
+
+.bg-OffWhite
+{
+  background-color: #f1f1f1;
+}
+
+.material-symbols-sharp {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.activeRoute
+{
+  border-radius: 50%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #f1f1f1;
+  padding: 5px ;
+  color: black !important;
+  font-weight: bolder;
+}
+
+.activeRouteIcon
+{
+  color: rgb(217, 54, 0) !important;
+  border-bottom: solid 3px rgb(144, 0, 0);
+  font-weight: bolder;
+}
+
+.activeRouteDrop
+{
+  color: rgb(217, 54, 0) !important;
+  border-bottom: solid 3px black;
+  border-radius: 5px;
+  font-weight: bolder;
+}

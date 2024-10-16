@@ -1,0 +1,33 @@
+button
+{
+  padding: 5px 40px !important;
+}
+.customHeigt
+{
+  height: 35em !important;
+}
+
+.brand
+{
+   transition: all 0.5s;
+}
+.brand:hover
+{
+  transform: scale(1.2);
+  cursor: pointer;
+  box-shadow:10px bisque;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.best
+{
+  border-top-left-radius: 80px;
+}
+

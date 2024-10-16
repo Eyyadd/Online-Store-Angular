@@ -1,0 +1,17 @@
+.Main
+{
+  background-image: linear-gradient(to right ,rgba(0,0,0,0.8)50%,rgba(0, 0, 0, 0.2)) ,url(/person-using-laptop.jpg) ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow:auto;
+}
+
+input
+{
+  background-color: rgba(241, 241, 241, 0.2);
+  border-radius: 25px;
+  color: white;
+  border: none;
+}

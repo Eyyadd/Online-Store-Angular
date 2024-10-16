@@ -1,0 +1,40 @@
+.Body
+{
+  background-color: #424242;
+  MIN-height: 83vh;
+  overflow: auto;
+}
+
+.btn-custom
+{
+  background-color: rgb(82, 218, 168);
+  color: rgb(255, 255, 255);
+}
+
+.Iterat
+{
+width: 50px;
+  color: white;
+
+}
+
+.bg-custom
+{
+  background-color: rgb(82, 218, 168);
+}
+
+input.c-label{
+  background-color: #2928285f;
+  border-radius: 20px;
+  border :none;
+}
+.cat-btn
+{
+  background-color: darkcyan;
+  width: 100px;
+  border:none;
+}
+.text-custom
+{
+  color:rgb(82, 218, 168); ;
+}
